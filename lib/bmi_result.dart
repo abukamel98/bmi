@@ -61,7 +61,7 @@ Text getStatus({required double bmi}) {
     textColor = Colors.green;
   } else if (18 <= bmi && bmi <= 24.9) {
     status = "Normal";
-    textColor = Colors.greenAccent;
+    textColor = Colors.green.shade700;
   } else if (25 <= bmi && bmi <= 29.9) {
     status = "Over Weight";
     textColor = Colors.yellow;
@@ -74,6 +74,9 @@ Text getStatus({required double bmi}) {
   }
   return Text(
     status,
-    style: TextStyle(color: textColor, fontSize: 25),
+    style: TextStyle(
+      color: textColor,
+      fontSize: 25,
+    ),
   );
 }

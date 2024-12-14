@@ -16,7 +16,18 @@ class _HomeScreenState extends State<HomeScreen> {
   double? personHeight;
   int? weight;
   int? age;
+
   bool disable = true;
+  void test(){
+    if (isSelectGender != null &&
+        personHeight != null &&
+        weight != null &&
+        age != null) {
+      setState(() {
+        disable = false;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,14 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
             MaleFemale(
               onGenderSelected: (bool isSelected) {
                 isSelectGender = isSelected;
-                if (isSelectGender != null &&
-                    personHeight != null &&
-                    weight != null &&
-                    age != null) {
-                  setState(() {
-                    disable = false;
-                  });
-                }
+               test();
               },
             ),
             Expanded(
@@ -51,14 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: PersonHeight(
                   height: (double height) {
                     personHeight = height;
-                    if (isSelectGender != null &&
-                        personHeight != null &&
-                        weight != null &&
-                        age != null) {
-                      setState(() {
-                        disable = false;
-                      });
-                    }
+                   test();
                   },
                 ),
                 margen: 10,
@@ -73,14 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ageOrWeight: "Age",
                           ageWeight: (int value) {
                             age = value;
-                            if (isSelectGender != null &&
-                                personHeight != null &&
-                                weight != null &&
-                                age != null) {
-                              setState(() {
-                                disable = false;
-                              });
-                            }
+                           test();
                           },
                         )),
                   ),
@@ -93,14 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ageOrWeight: "Weight",
                           ageWeight: (int value) {
                             weight = value;
-                            if (isSelectGender != null &&
-                                personHeight != null &&
-                                weight != null &&
-                                age != null) {
-                              setState(() {
-                                disable = false;
-                              });
-                            }
+                            test();
                           },
                         )),
                   ),
